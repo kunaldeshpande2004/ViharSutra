@@ -15,7 +15,7 @@ const Find = async (req,res)=>{
 }
 
 const Set = async (req, res) => {
-    const { email, place, buget, members, sDate, eDate } = req.body;
+    const { email, place, buget, members, sDate, eDate ,plan } = req.body;
     console.log("Received data:", req.body);  // Debugging line
 
     try {
@@ -24,7 +24,8 @@ const Set = async (req, res) => {
             buget,
             members,
             startDate: new Date(sDate),   // Convert to Date object
-            endDate: new Date(eDate)      // Convert to Date object
+            endDate: new Date(eDate) ,     // Convert to Date object
+            plan,
         };
 
         const result = await User.findOneAndUpdate(

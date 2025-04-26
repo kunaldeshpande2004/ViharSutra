@@ -9,6 +9,8 @@ import CreateAccount from './components/CreateAccount';
 import TravelDates from './components/TravelDates';
 import Buget from './components/Buget';
 import TripReview from './components/TripReview';
+//import landingImage from '../src/assets/landingImage.jpg'
+import landingImage from '../src/assets/dp4.jpg'
 
 const RequireAuth = ({ children }) => {
   const name = sessionStorage.getItem("fullname");
@@ -24,7 +26,10 @@ const RequireAuth = ({ children }) => {
 
 function App() {
   return (
-    <div>
+<div className=' bg-cover bg-center  ' style={{ backgroundImage: `url(${landingImage})` }}>
+<h2 className='font-bold text-3xl p-4'> ✈️ Vihar Sutra</h2>
+
+
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />

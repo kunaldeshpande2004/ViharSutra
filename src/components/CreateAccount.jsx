@@ -1,7 +1,7 @@
 import { message } from 'antd';
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 export default function CreateAccount() {
   const navigate = useNavigate()
   const [fullname , setFullName] = useState('');
@@ -16,7 +16,7 @@ export default function CreateAccount() {
     try {
     
       const response = await axios.post(
-        "http://localhost:5000/signup",
+        `${import.meta.env.VITE_API_URL}/signup`,
         { fullname, email, password }, // Send data as an object
         {
           headers: { "Content-Type": "application/json" },
@@ -42,7 +42,7 @@ export default function CreateAccount() {
   };
   
     return (
-      <div className='place-items-center'>
+      <div className='place-items-center font-bold'>
           <div className='p-8 lg:w-[50%] w-full'>
         <h1 className='text-4xl'>Let's Create your account</h1>
         <br />
@@ -69,13 +69,15 @@ export default function CreateAccount() {
   <button  className="bg-black text-white hover:bg-gray-950 w-[70%] cursor-pointer rounded-2xl p-5 mt-8" onClick={signup}>
     Create Account
   </button>
-
-  <button
-    className="rounded-2xl p-5 cursor-pointer hover:bg-gray-100 w-[70%] mt-3 border"
-    onClick={() => navigate('/signin')}
+<Link to = '/signin'  className="rounded-2xl text-center p-5 cursor-pointer hover:bg-gray-100 w-[70%] mt-3 border" > 
+<button
+   
+   
   >
     Sign In
   </button>
+</Link>
+  
 </form>
 
       </div>

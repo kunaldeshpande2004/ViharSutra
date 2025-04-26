@@ -1,7 +1,7 @@
 import { message } from 'antd';
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 
 export default function Login() {
     const navigate = useNavigate()
@@ -16,7 +16,8 @@ export default function Login() {
       }
    
       try {
-        const response = await axios.post('http://localhost:5000/login', { email, password }, {
+
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, { email, password }, {
           headers: { 'Content-Type': 'application/json' }
         });
       
@@ -43,9 +44,9 @@ export default function Login() {
       }
     }
   return (
-    <div className='place-items-center'>
+    <div className='place-items-center font-bold'>
     <div className='p-8 lg:w-[50%] w-full'>
-  <h1 className='text-4xl'>Let's Sign You In</h1>
+  <h1 className='text-4xl '>Let's Sign You In</h1>
   <br />
   <h2 className='text-3xl text-gray-500' > Welcome Back </h2>
   <br />
@@ -59,19 +60,20 @@ export default function Login() {
 
   <div className="w-full mt-4">
     <label htmlFor="Password" className="block text-left mb-2">Password</label>
-    <input type="text" onChange={(e)=>setPassword(e.target.value)} placeholder="Enter Password" className="p-5 border w-full rounded-2xl"/>
+    <input type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="Enter Password" className="p-5 border w-full rounded-2xl"/>
   </div>
 
   <button onClick={signin} className="bg-black text-white hover:bg-gray-950 w-[70%] cursor-pointer rounded-2xl p-5 mt-8">
    Sign In
   </button>
-
+<Link to='/createAccount' className="rounded-2xl text-center p-5 cursor-pointer hover:bg-gray-100 w-[70%] mt-3 border">
   <button
-    className="rounded-2xl p-5 cursor-pointer hover:bg-gray-100 w-[70%] mt-3 border"
-    onClick={() => navigate('/createAccount')}
+    
+   
   >
     Create Account
   </button>
+  </Link>
 </form>
     </div>
   )

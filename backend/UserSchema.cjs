@@ -6,7 +6,8 @@ const TripSchema = new mongoose.Schema({
     buget : String,
     members : String,
     startDate : Date,
-    endDate : Date
+    endDate : Date,
+    plan : String,
 })
 
 const UserSchema = new mongoose.Schema({
