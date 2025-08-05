@@ -23,9 +23,6 @@ It integrates AI services to auto-generate optimized trip plans based on user pr
 - **APIs:** RESTful APIs for trip management  
 - **Others:** Azure (optional deployment), Postman (API testing)
 
-## 📸 Screenshots
-
-> 📷 *Add some UI screenshots or a demo GIF here showing the itinerary generation and management.*
 
 ## 🚀 Installation
 
